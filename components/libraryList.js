@@ -4,17 +4,19 @@ import {connect} from 'react-redux';
 import ListItem from './listItem';
 
 
+let singleton = 1;
+
 class LibraryList extends Component {
 	componentWillMount() {
 		const ds = new ListView.DataSource({
 			rowHasChanged: (r1, r2) => r1 !== r2
 		});
 
-		this.dataSource = ds.cloneWithRows (this.props.libraries);
+		this.dataSource = ds.cloneWithRows(this.props.libraries);
 	}
 
 	renderRow(library) {
-		return <ListItem library={library} />;
+		return <ListItem library={library} singleton={singleton++} />;
 	}
 
 	render() {
