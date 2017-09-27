@@ -3,9 +3,6 @@ import {ListView} from 'react-native';
 import {connect} from 'react-redux';
 import ListItem from './listItem';
 
-
-let singleton = 1;
-
 class LibraryList extends Component {
 	componentWillMount() {
 		const ds = new ListView.DataSource({
@@ -16,7 +13,7 @@ class LibraryList extends Component {
 	}
 
 	renderRow(library) {
-		return <ListItem library={library} singleton={singleton++} />;
+		return <ListItem library={library} />;
 	}
 
 	render() {

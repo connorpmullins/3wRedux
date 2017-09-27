@@ -6,15 +6,7 @@ import * as actions from '../actions';
  
 
 class ListItem extends Component {
-
-	componentWillReceiveProps(props){
-	    console.log("inside componentWillReceiveProps", props);
-	}
-
 	renderDescription(){
-
-		console.log("ASLKdfjlasjdf", this.props.selectedLibraryId, "---", this.props.library.id);
-
 		if (this.props.library.id === this.props.selectedLibraryId) {
 			return (
 				<Text>{this.props.library.description}</Text>
@@ -22,19 +14,14 @@ class ListItem extends Component {
 		}
 	} 
 
-
-
 	render() {
 		const { titleStyles } = styles;
-		const { id, title } = this.props.library;
-
-		const { singleton } = this.props; 
-
-		console.log("inside render")
+		const { id, title } = this.props.library; 
 
 		return (
 			<TouchableWithoutFeedback
 				onPress={() => {
+          this.setState({something: true});
 					this.props.selectLibrary(id);
 				}}
 			>
@@ -60,9 +47,7 @@ const styles = {
 };
 
 const mapStateToProps = state => {
-	console.log("STATE:", state);
-
-	return { selectedLibraryId: state.selectedLibraryId };
+	return { selectedLibraryId: state.selectedLibraryID };
 };
 
 export default connect(mapStateToProps, actions)(ListItem);
