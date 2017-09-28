@@ -21,7 +21,6 @@ class ListItem extends Component {
 		return (
 			<TouchableWithoutFeedback
 				onPress={() => {
-          this.setState({something: true});
 					this.props.selectLibrary(id);
 				}}
 			>
